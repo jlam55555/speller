@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 20px;
+  font-family: Lora;
+  color: #efefef;
+  background-color: #4275F4;
+}
+button, input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  transition: all .2s;
+  padding: 0;
+  margin: 0;
+  float: left;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 20px;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+button:hover, input:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input#word {
+  width: 100%;
+  text-align: center;
+  font-family: indie flower;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input#word.hideText {
+  color: transparent;
+}
+@keyframes right {
+  0% {}
+  30% { background-color: rgba(39, 174, 96, 0.75); }
+  100% { background-color: rgba(0, 0, 0, 0.2); }
+}
+input#word.right {
+  animation: right 1s 1;
+}
+@keyframes wrong {
+  0% {}
+  30% { background-color: rgba(192, 57, 43, 0.75); }
+  100% { background-color: rgba(0, 0, 0, 0.2); }
+}
+input#word.wrong {
+  animation: wrong 1s 1;
+}
+button#check, button#replay {
+  width: 50%;
+}
+div#completed {
+  height: calc(100% - 135px);
+  width: 100%;
+  position: absolute;
+  top: 135px;
+  left: 0;
+  padding: 20px;
+  color: #4275F4;
+  background-color: #efefef;
+  overflow-y: scroll;
+}
+@keyframes fadeIn {
+  from { opacity: 0; width: 0; padding: 20px 0; }
+  to { opacity: 1; width: 200px; padding: 20px; }
+}
+div#completed > div.completedWord {
+  display: inline-block;
+  padding: 20px;
+  text-align: center;
+  color: #fefefe;
+  border-radius: 2px;
+  margin: 20px;
+  float: left;
+  width: 200px;
+  animation: fadeIn .2s 1;
+  cursor: pointer;
+}
+/* blended color points from http://meyerweb.com/eric/tools/color-blend/#96281B:2C3E50:5:hex */
+div#completed > div.completedWord.wrong6 {
+  background-color: #96281B;
+}
+div#completed > div.completedWord.wrong5 {
+  background-color: #842C24;
+}
+div#completed > div.completedWord.wrong4 {
+  background-color: #732F2D;
+}
+div#completed > div.completedWord.wrong3 {
+  background-color: #613336;
+}
+div#completed > div.completedWord.wrong2 {
+  background-color: #4F373E;
+}
+div#completed > div.completedWord.wrong1 {
+  background-color: #3E3A47;
+}
+div#completed > div.completedWord.wrong0 {
+  background-color: #2C3E50;
+}
+div#completed > div.completedWord.doneWord {
+  background-color: #1cb890;
+}
+@media print {
+  body, html {
+    font-size: 12px;
+    font-family: ubuntu mono;
+  }
+  input, button, a#thehomeworklifelogosnippet, div.completedWord.doneWord {
+    display: none;
+  }
+  div#completed {
+    height: auto;
+    position: static;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    padding: none;
+    overflow-y: auto;
+  }
+  div#completed::before {
+    content: "Mistake Occurrences";
+    display: block;
+    font-size: 24px;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  div#completed > div.completedWord {
+    background-color: white !important;
+    color: black;
+    display: block;
+    float: none;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+  }
+  div#completed > div.completedWord.wrong6, div#completed > div.completedWord.wrong4 {
+    font-weight: bold;
+  }
+  div#completed > div.completedWord.wrong0, div#completed > div.completedWord.wrong1 {
+    color: #dddddd;
+  }
+  div#completed > div.completedWord.wrong0, div#completed > div.completedWord.wrong1 {
+    color: #888888;
+  }
+  div#completed > div.completedWord.wrong6::before {
+    content: "******  ";
+  }
+  div#completed > div.completedWord.wrong5::before {
+    content: "*****   ";
+  }
+  div#completed > div.completedWord.wrong4::before {
+    content: "****    ";
+  }
+  div#completed > div.completedWord.wrong3::before {
+    content: "***     ";
+  }
+  div#completed > div.completedWord.wrong2::before {
+    content: "**      ";
+  }
+  div#completed > div.completedWord.wrong1::before {
+    content: "*       ";
+  }
+  div#completed > div.completedWord.wrong0::before {
+    content: "        ";
+  }
+}
+div#hide {
+  position: absolute;
+  top: 13px;
+  right: 20px;
+  z-index: 2;
+  font-size: 12px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s;
+}
+div#hide:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
